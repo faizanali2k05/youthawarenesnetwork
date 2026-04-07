@@ -1,10 +1,47 @@
 import { Mail, MessageCircle, MapPin, Send } from 'lucide-react';
 import { motion, useInView } from 'motion/react';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 export function ContactSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const [formState, setFormState] = useState({ name: '', email: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const formData = new FormData();
+      formData.append('name', formState.name);
+      formData.append('email', formState.email);
+      formData.append('message', formState.message);
+
+      const response = await fetch('https://formspree.io/f/xjgpljjk', {
+        method: 'POST',
+        body: formData,
+        redirect: 'manual',
+      });
+
+      // Formspree returns 303 on successful submission
+      if (response.status === 303 || response.ok) {
+        setSubmitStatus('success');
+        setFormState({ name: '', email: '', message: '' });
+        setTimeout(() => setSubmitStatus('idle'), 4000);
+      } else {
+        setSubmitStatus('error');
+        setTimeout(() => setSubmitStatus('idle'), 4000);
+      }
+    } catch {
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus('idle'), 4000);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section id="contact" className="py-20 px-4 bg-gradient-to-b from-white to-gray-50" ref={ref}>
@@ -102,6 +139,87 @@ export function ContactSection() {
             );
           })}
         </div>
+
+        <motion.div 
+          className="bg-white rounded-2xl p-10 max-w-3xl mx-auto shadow-xl border-2 border-[#363636]/10 mb-12"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={isInView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.7 }}
+        >
+          <h3 className="text-3xl font-bold text-[#363636] mb-6 text-center">Send us a Message</h3>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <label htmlFor="name" className="block text-lg font-semibold text-[#363636] mb-2">
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formState.name}
+                onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                className="w-full px-4 py-3 border-2 border-[#363636]/20 rounded-lg focus:outline-none focus:border-[#363636] transition-colors"
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="block text-lg font-semibold text-[#363636] mb-2">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formState.email}
+                onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                className="w-full px-4 py-3 border-2 border-[#363636]/20 rounded-lg focus:outline-none focus:border-[#363636] transition-colors"
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="message" className="block text-lg font-semibold text-[#363636] mb-2">
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formState.message}
+                onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                rows={4}
+                className="w-full px-4 py-3 border-2 border-[#363636]/20 rounded-lg focus:outline-none focus:border-[#363636] transition-colors resize-none"
+                required
+              ></textarea>
+            </div>
+            <motion.button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full bg-[#363636] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#4a4a4a] transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-lg inline-flex items-center justify-center gap-2"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Send size={22} />
+              {isSubmitting ? 'Sending...' : 'Send Message'}
+            </motion.button>
+            {submitStatus === 'success' && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-center text-green-600 font-semibold"
+              >
+                ✓ Message sent successfully! Thank you for reaching out.
+              </motion.p>
+            )}
+            {submitStatus === 'error' && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-center text-red-600 font-semibold"
+              >
+                ✗ Failed to send message. Please try again.
+              </motion.p>
+            )}
+          </form>
+        </motion.div>
 
         <motion.div 
           className="bg-gradient-to-br from-[#363636] to-[#4a4a4a] rounded-2xl p-10 text-white text-center max-w-3xl mx-auto shadow-2xl relative overflow-hidden"
