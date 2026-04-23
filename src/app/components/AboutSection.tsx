@@ -21,7 +21,7 @@ export function AboutSection() {
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.6 }
     }
   };
 
@@ -69,17 +69,17 @@ export function AboutSection() {
           whileHover={{ y: -5, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)" }}
         >
           <p className="text-gray-800 text-lg mb-6 leading-relaxed">
-            Youth Awareness Network (YAN) was founded by <span className="font-bold text-[#363636] text-xl">Ahmad Raza</span> with a vision to guide young minds toward positive thinking, informed decision-making, and responsible citizenship. We believe that awareness is the first step toward meaningful change.
+            <span className="text-[#363636] font-semibold text-xl">Youth Awareness Network (YAN)</span> is a youth-led initiative focused on providing free access to awareness, guidance, and global opportunities for students, especially those with limited resources or direction.
           </p>
           <p className="text-gray-800 text-lg mb-6 leading-relaxed">
-            Our approach centers on three pillars: <span className="text-[#363636] font-semibold text-xl">Awareness, Learning, and Action</span>. We don't just talk about change—we create it through education, engagement, and empowerment.
+            We support young individuals in understanding their academic and career paths, building strong profiles, and connecting with international peers through structured programs and virtual exchanges.
           </p>
           <motion.p 
             className="text-[#363636] text-2xl font-bold text-center py-4"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            YAN is run by youth, for youth.
+            Lead by Youth to Lead Youth
           </motion.p>
         </motion.div>
 
@@ -106,7 +106,7 @@ export function AboutSection() {
             </motion.div>
             <h3 className="relative text-[#363636] text-2xl font-bold mb-3">Youth-Led</h3>
             <p className="relative text-gray-700 leading-relaxed">
-              Run by young people who understand youth challenges and aspirations, creating authentic connections and real impact
+              Driven by young individuals who understand real challenges, ensuring relevant solutions and authentic impact.
             </p>
           </motion.div>
 
@@ -127,7 +127,7 @@ export function AboutSection() {
             </motion.div>
             <h3 className="relative text-[#363636] text-2xl font-bold mb-3">Action-Oriented</h3>
             <p className="relative text-gray-700 leading-relaxed">
-              Focused on making real change through practical awareness, education, and community engagement initiatives
+              Focused on delivering practical awareness, structured guidance, and real opportunities—not just ideas.
             </p>
           </motion.div>
 
@@ -146,9 +146,9 @@ export function AboutSection() {
                 <TrendingUp className="text-white" size={40} />
               </div>
             </motion.div>
-            <h3 className="relative text-[#363636] text-2xl font-bold mb-3">Growth Focused</h3>
+            <h3 className="relative text-[#363636] text-2xl font-bold mb-3">Growth-Focused</h3>
             <p className="relative text-gray-700 leading-relaxed">
-              Committed to helping youth grow intellectually, morally, and socially through continuous learning and development
+              Committed to supporting academic, personal, and professional development through continuous learning and exposure.
             </p>
           </motion.div>
         </motion.div>

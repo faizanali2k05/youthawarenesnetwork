@@ -9,33 +9,33 @@ export function ActivitiesSection() {
   const activities = [
     {
       icon: MessageCircle,
-      title: 'Awareness Sessions & Discussions',
-      description: 'Interactive dialogue sessions on critical topics shaping youth perspectives and society',
+      title: 'Awareness Sessions',
+      description: 'Interactive sessions covering education, careers, and scholarships to provide clear direction and informed decision-making.',
     },
     {
       icon: BookOpen,
-      title: 'Educational Content & Resources',
-      description: 'Creating impactful educational materials and booklets for knowledge dissemination',
+      title: 'Guidance & Resources',
+      description: 'Curated content and support to help students build strong profiles and access opportunities effectively.',
     },
     {
       icon: Megaphone,
-      title: 'Digital & Online Campaigns',
-      description: 'Strategic social media outreach campaigns to amplify awareness and engagement',
+      title: 'Digital Outreach',
+      description: 'Strategic online initiatives to share relevant information, opportunities, and student-focused insights.',
     },
     {
       icon: UsersIcon,
-      title: 'Community Engagement',
-      description: 'Mobilizing youth for meaningful community service and collaborative initiatives',
+      title: 'Global Exchange Programs',
+      description: 'Virtual programs connecting youth internationally to promote cultural exchange and global perspective.',
     },
     {
       icon: Award,
-      title: 'Leadership Development',
-      description: 'Comprehensive training programs cultivating the next generation of change-makers',
+      title: 'Community Engagement',
+      description: 'Encouraging participation in meaningful initiatives and collaborative projects that create real impact.',
     },
     {
       icon: TrendingUp,
-      title: 'Growing Together',
-      description: 'Continuously evolving with new initiatives as our community expands',
+      title: 'Continuously Expanding',
+      description: 'YAN is continuously expanding, with new initiatives focused on increasing access, reach, and impact.',
     },
   ];
 
@@ -67,7 +67,7 @@ export function ActivitiesSection() {
               />
             </motion.div>
             <h2 className="relative text-5xl md:text-6xl text-[#363636] font-bold px-8 py-4 bg-white rounded-2xl">
-              Activities & Projects
+              Activities & Initiatives
             </h2>
           </div>
           <motion.p
@@ -76,7 +76,7 @@ export function ActivitiesSection() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed"
           >
-            Engaging initiatives designed to empower, educate, and inspire youth across communities
+            Structured programs designed to deliver practical guidance, awareness, and global exposure to students.
           </motion.p>
         </motion.div>
 

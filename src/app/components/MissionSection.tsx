@@ -9,23 +9,23 @@ export function MissionSection() {
   const missions = [
     {
       icon: BookOpen,
-      title: 'Promote Education & Critical Thinking',
-      description: 'Cultivating analytical minds through continuous learning, questioning, and intellectual growth for informed decision-making',
+      title: 'Education & Critical Thinking',
+      description: 'Equipping students with clear knowledge, direction, and decision-making skills for academic and career growth.',
     },
     {
       icon: Users,
-      title: 'Raise Awareness on Social Issues',
-      description: 'Highlighting crucial challenges facing youth and society, creating informed citizens who drive meaningful change',
+      title: 'Awareness & Opportunity Access',
+      description: 'Bridging information gaps by sharing relevant opportunities, resources, and guidance often inaccessible to many students.',
     },
     {
       icon: Award,
-      title: 'Encourage Leadership & Service',
-      description: 'Building confident leaders who serve their communities with integrity, empathy, and commitment to excellence',
+      title: 'Leadership & Global Engagement',
+      description: 'Developing confident individuals through collaboration, virtual exchange programs, and international exposure.',
     },
     {
       icon: Heart,
-      title: 'Foster Holistic Development',
-      description: 'Nurturing intellectual, moral, and emotional growth to develop well-rounded individuals ready to shape the future',
+      title: 'Holistic Growth',
+      description: 'Supporting academic, personal, and professional development to prepare youth for real-world challenges.',
     },
   ];
 
@@ -65,7 +65,7 @@ export function MissionSection() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed"
           >
-            Empowering the next generation through transformative awareness, education, and action-driven programs that inspire lasting change
+            To provide free access to awareness, guidance, and global opportunities, enabling youth to make informed decisions and grow beyond limitations.
           </motion.p>
         </motion.div>
 
@@ -75,16 +75,17 @@ export function MissionSection() {
             return (
               <motion.div
                 key={index}
-                className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-[#363636] relative overflow-hidden"
+                className="group bg-white rounded-2xl p-8 transition-all duration-300 border-2 border-[#363636]/20 hover:border-[#363636] relative overflow-hidden"
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -8, borderLeftWidth: 8 }}
+                whileHover={{ y: -8, scale: 1.02 }}
               >
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-[#363636]/20 via-transparent to-[#363636]/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ zIndex: -1 }} />
                 <div className="absolute inset-0 bg-gradient-to-br from-[#363636]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative flex items-start gap-5">
                   <motion.div 
-                    className="bg-gradient-to-br from-[#363636] to-[#4a4a4a] p-4 rounded-xl flex-shrink-0 shadow-lg"
+                    className="bg-gradient-to-br from-[#363636] to-[#4a4a4a] p-4 rounded-xl flex-shrink-0 border-2 border-[#4a4a4a]/50"
                     whileHover={{ rotate: 360, scale: 1.1 }}
                     transition={{ duration: 0.6 }}
                   >

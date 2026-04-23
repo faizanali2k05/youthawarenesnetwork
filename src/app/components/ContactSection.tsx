@@ -172,7 +172,7 @@ export function ContactSection() {
                 name="email"
                 value={formState.email}
                 onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                className="w-full px-4 py-3 border-2 border-[#363636]/20 rounded-lg focus:outline-none focus:border-[#363636] transition-colors"
+                className="w-full px-5 py-4 text-base border-2 border-[#363636]/20 rounded-lg focus:outline-none focus:border-[#363636] transition-colors"
                 required
               />
             </div>

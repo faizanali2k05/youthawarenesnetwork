@@ -41,10 +41,10 @@ export function HeroSection({ onJoinClick }: HeroSectionProps) {
           <motion.img 
             src={logoImage} 
             alt="YAN Logo" 
-            className="h-48 w-auto drop-shadow-2xl"
-            style={{ mixBlendMode: 'normal' }}
+            className="h-48 w-auto"
+            style={{ mixBlendMode: 'lighten', filter: 'brightness(1.1)' }}
             animate={{ 
-              filter: ["drop-shadow(0 0 20px rgba(255,255,255,0.3))", "drop-shadow(0 0 40px rgba(255,255,255,0.5))", "drop-shadow(0 0 20px rgba(255,255,255,0.3))"]
+              filter: ["brightness(1.1) drop-shadow(0 0 10px rgba(255,255,255,0.2))", "brightness(1.15) drop-shadow(0 0 30px rgba(255,255,255,0.4))", "brightness(1.1) drop-shadow(0 0 10px rgba(255,255,255,0.2))"]
             }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           />
@@ -68,7 +68,7 @@ export function HeroSection({ onJoinClick }: HeroSectionProps) {
         >
           <div className="absolute -inset-2 bg-gradient-to-r from-white/20 via-white/10 to-white/20 rounded-lg blur opacity-50"></div>
           <p className="relative text-2xl md:text-3xl text-gray-100 px-6 py-3">
-            Empowering Youth to Create Awareness, Inspire Change, and Shape a Better Future
+            Connecting Youth to Opportunities, Knowledge, and Global Exposure
           </p>
         </motion.div>
 
@@ -78,7 +78,7 @@ export function HeroSection({ onJoinClick }: HeroSectionProps) {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.7, duration: 0.6 }}
         >
-          We are a youth-led organization dedicated to spreading awareness about education, social responsibility, personal development, and community impact. Together, we build informed minds that transform societies.
+          We are a youth-led platform committed to providing free access to awareness, guidance, and international opportunities. Our mission is to equip students with the knowledge, exposure, and direction they need to grow beyond limitations.
         </motion.p>
 
         <motion.div 
@@ -93,7 +93,7 @@ export function HeroSection({ onJoinClick }: HeroSectionProps) {
           >
             <Sparkles className="text-white" size={32} />
           </motion.div>
-          <p className="text-xl font-medium">Informed Youth. Better Society. Brighter Tomorrow.</p>
+          <p className="text-xl font-medium">Free opportunities. Global exposure. Awareness</p>
         </motion.div>
 
         <motion.div

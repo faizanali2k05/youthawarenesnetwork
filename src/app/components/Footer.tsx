@@ -1,4 +1,4 @@
-import { Heart, Lightbulb, Mail, MessageCircle, MapPin, Linkedin, Instagram, Facebook } from 'lucide-react';
+import { Heart, Lightbulb, Mail, MessageCircle, MapPin, Linkedin, Instagram, Facebook, Youtube, Link } from 'lucide-react';
 import { motion } from 'motion/react';
 import logoImage from '../../assets/826164d80fd732187bfaf088c09dae7c138832fd.png';
 
@@ -7,6 +7,8 @@ export function Footer() {
     { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
     { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
     { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
+    { icon: Youtube, href: 'https://youtube.com', label: 'YouTube' },
+    { icon: Link, href: 'https://linktree.com', label: 'Linktree' },
   ];
 
   return (
@@ -33,8 +35,8 @@ export function Footer() {
               <motion.img 
                 src={logoImage} 
                 alt="YAN Logo" 
-                className="h-14 w-auto drop-shadow-lg"
-                style={{ mixBlendMode: 'normal' }}
+                className="h-14 w-auto"
+                style={{ mixBlendMode: 'lighten' }}
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 transition={{ duration: 0.3 }}
               />
