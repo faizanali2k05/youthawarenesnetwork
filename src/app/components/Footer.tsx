@@ -4,11 +4,11 @@ import logoImage from '../../assets/826164d80fd732187bfaf088c09dae7c138832fd.png
 
 export function Footer() {
   const socialLinks = [
-    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
-    { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
-    { icon: Youtube, href: 'https://youtube.com', label: 'YouTube' },
-    { icon: Link, href: 'https://linktree.com', label: 'Linktree' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/youthawarenessnetwork/', label: 'LinkedIn' },
+    { icon: Instagram, href: 'https://www.instagram.com/youthawarenessnetwork', label: 'Instagram' },
+    { icon: Facebook, href: 'https://www.facebook.com/Youthwarenessnetwork/', label: 'Facebook' },
+    { icon: Youtube, href: 'https://www.youtube.com/@youthawarenessnetwork', label: 'YouTube' },
+    { icon: Link, href: 'https://linktr.ee/youthawarenessnetwork', label: 'Linktree' },
   ];
 
   return (
