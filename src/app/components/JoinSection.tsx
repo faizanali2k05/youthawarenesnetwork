@@ -19,11 +19,34 @@ export function JoinSection({ onContactClick }: JoinSectionProps) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [focusedField, setFocusedField] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setIsSubmitted(true);
-    
+    setIsSubmitted(false);
+
+    try {
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('phone', formData.phone);
+      formDataToSend.append('message', formData.message);
+
+      const response = await fetch('https://formspree.io/f/xrejbekg', {
+        method: 'POST',
+        body: formDataToSend,
+        redirect: 'manual',
+      });
+
+      if (response.status === 303 || response.ok) {
+        setIsSubmitted(true);
+      } else {
+        console.error('Form submission failed', response.status, response.statusText);
+        setIsSubmitted(false);
+      }
+    } catch (err) {
+      console.error('Form submission error', err);
+      setIsSubmitted(false);
+    }
+
     setTimeout(() => {
       setFormData({ name: '', email: '', phone: '', message: '' });
       setIsSubmitted(false);

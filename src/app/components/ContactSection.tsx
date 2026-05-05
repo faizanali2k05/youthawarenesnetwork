@@ -20,7 +20,7 @@ export function ContactSection() {
       formData.append('email', formState.email);
       formData.append('message', formState.message);
 
-      const response = await fetch('https://formspree.io/f/xjgpljjk', {
+      const response = await fetch('https://formspree.io/f/xrejbekg', {
         method: 'POST',
         body: formData,
         redirect: 'manual',
